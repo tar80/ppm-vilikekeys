@@ -2,12 +2,13 @@
 /**
  * Count function
  *
- * @version 1.0
  * @arg 0 Numerical value
  * @arg 1 Limit digit
  */
 
 'use strict';
+
+PPx.setIValue('ppmviResetLimit', 1);
 
 const digit = ((args = PPx.Arguments) => {
   const len = args.length;
@@ -25,4 +26,6 @@ const digit = ((args = PPx.Arguments) => {
 const counter = (v) => PPx.Execute(`*string i,ppmviG=${v}%:*setnextkey #K_ppmViG,!"${v}`);
 const count = PPx.getIValue('ppmviG');
 
-counter(count === '01' && digit.value !== '0' ? digit.value : `${count}${digit.value}`.slice(-digit.limit));
+counter(
+  count === '01' && digit.value !== '0' ? digit.value : `${count}${digit.value}`.slice(-digit.limit)
+);

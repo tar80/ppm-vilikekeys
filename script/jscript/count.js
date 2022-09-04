@@ -3,10 +3,11 @@
 /**
  * Count function
  *
- * @version 1.0
  * @arg 0 Numerical value
  * @arg 1 Limit digit
  */
+
+PPx.setIValue('ppmviResetLimit', 1);
 
 var digit = (function (args) {
   var len = args.length;
