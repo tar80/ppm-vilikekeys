@@ -1,4 +1,4 @@
-# plugin name
+# ppm-vilikekeys
 
 ppx-plugin-manager用のプラグインです。  
 PPxの操作に支障をきたさない範囲でviのような

@@ -13,37 +13,59 @@
 %M?ppxidlist ;PPxのIDを取得
 %M?sortmenu ;MC_sort
 %M?viewmenu ;MC_celS
-%I" ;" ポップアップ
-%Q" ;" 確認ポップアップ
+%I ;"text" ポップアップ
+%Q ;[Y|N|O|C]"text" 確認ポップアップ
+%E ;編集テキスト
 %F ;C:name.ext  X:name  T:ext
 %F ;D:ディレクトリ  M:マーク限定
 %F ;B:「"」で括る   N:「"」で括らない
 %F ;S:SFN(8.3形式)指定
 %F ;V:仮想ディレクトリ表記 #x:など
+%H ;[types]n 実行ヒストリ
+%L ;[V] PPv論理行
 %O ;x:窓最大化  n:最小化  d:非表示  a:フォーカス移動なし
 %O ;B:PPbで実行    b:PPbを使わない  W:PPb実行後キー待機
 %O ;s:順番に実行   i:起動完了待機   c:シェルを使用
 %O ;R:マーク無効   r:マーク全処理
-%O ;S:\を/に置換   p:[を\[に置換    A:DIR末尾 \*.*
+%O ;S:\を/に置換   p:[を\[ に置換    A:DIR末尾 \*.*
 %O ;N:編集機能無効 D:マクロ文字を展開しない
 %O ;C:改行を含める O:実行後カーソルを一つ下に移動
 %O ;P: | > を処理せずそのまま表示
 %O ;I:キーコマンドのエラー無視
 %O ;q:コマンド待機時のダイアログ非表示
 %O ;T:レスポンスファイル使用後削除(%Osを併用すること)
+%P ;編集パス
+%S ;"text" サブディレクトリ限定コマンド
+%T ;マークエントリ拡張子
+%W ;キャプション文字列
+%X ;マークエントリ名
+%Y ;カーソル位置エントリ名
+%Z ;[name][,command] エクスプローラ拡張子判別
+%a ;[*][8|8B][type] レスポンスファイル
 %e ;g:初期値 m:マスク n:数字 s:検索 h:コマンド u,x:ユーザー
 %e ;f:フルパス d:ディレクトリ c:ファイル名
+%h ;[types]n パスヒストリ
+%l ;[V] PPv表示行
+%lh ;PPv表示桁
+%m ;text ラベル
+%t ;カーソル位置エントリ拡張子
+%v ;path PPvで表示
+%z ;[pathname][,command] シェルコンテキストメニュー
+%@ ;[*][8|8B|U|UB][type] レスポンスファイル
 %#F ;選択ファイル名(列挙)
 %*addchar( ;character) :区切り等の文字の追加
 %*calc( ;formula) 数値計算結果
+%*coice( ;"text" -title:"" -type:ok,Y/O,N/C,ync,ari,ri -cancelstop)
 %*comment ;[(id)] コメント
 %*clippedtext() ;クリップボードの内容取得
 %*cursorpos( ;x:|y:|r:下x|b:下y|w:カーソル幅|h:カーソル高)
+%*cursortext ;カーソル位置テキスト
 %*dirhistory( ;n)「戻る」の履歴の取得
 %*edittext ;編集テキスト
 %*editprop( ;start, end, history, whistory, filename, mode, modify, laststatus)
 %*editprop( ;startline, endline, codepage, returncode, name, tab, list)
 %*errorlevel ;プロセス終了コード %*exitcodeと同様
+%*errormsg( ;number) Windows API エラーメッセージ
 %*exitcode ;プロセス終了コード %*errorlevelと同様
 %*extract( ;[ID]"command")
 %*findwindowclass( ;"window class")
@@ -51,12 +73,15 @@
 %*findwindowtitle( ;"window title")
 #%*findwindowtitle( ;"window title")
 %*getcust( ;X_xxx:xxx) カスタマイズ読み込み
-%*input( ;"文字列" -title:"" -mode:type,reftype
+%*input( ;"text" -title:"" -mode:type,reftype
 %*input( ;-select:l(末尾) m(桁指定) m,n(m~n桁) i(|で範囲指定)
+%*insertSource( ;filename [-notrim]) テキストファイル(コマンドライン)を挿入
+%*insertValue( ;filename [-notrim]) テキストファイル(パラメータ)を挿入
 %*job ;処理中コマンドの数
 %*leftstr( ;"text", length) 左からlength字取得
 %*linkedpath( ;filename) リンク対象パス
 %*maskentry ;エントリマスクの取得
+%*menu( ;xxx[, !itemname])
 %*menupos( ;x|y) ポップアップメニューの位置
 %*midstr( ;"text", index [,length]) index字目からlength字分切取
 %*mousepos( ;x|y) マウスカーソルの位置
@@ -75,7 +100,12 @@
 %*ppxlist( ;C,V,B,+,-) 起動中のPPxID
 %*regexp( ;"source","s///") 正規表現加工
 %*rightstr( ;"text", length) 右からlength字取得
+%*run( ;[options] command [parameter] コマンドの出力を得る
 %*screendpi( ;ID) 画面の解像度を取得
 %*selecttext ;選択範囲の文字列取得
+%*sortentry( ;last, id) ソート設定の取得
+%*temp ;[(name[,f|d])] 一時パスの取得
+%*tree( ;type)
+%*useapps( ;filename) プロセス一覧
 %*viewstyle ;現在の表示形式を取得
 %*windowrect( ;(id),l:左r:右t:上b:下w:幅h:高)
