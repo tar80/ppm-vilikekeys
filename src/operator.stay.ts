@@ -9,7 +9,7 @@ import {safeArgs} from '@ppmdev/modules/argument.ts';
 import {isEmptyStr} from '@ppmdev/modules/guard.ts';
 import debug from '@ppmdev/modules/debug.ts';
 
-const STAYMODE_ID = 80002;
+const STAYMODE_ID = 80130;
 const TIMER_INTERVAL = 400;
 
 type Cache = {label: string; sign: string; count: string; digit: number; timer: number};

@@ -1,6 +1,6 @@
 {
   "name": "@ppmdev/ppm-vilikekeys",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "ppx-plugin-manager用のプラグインです。",
   "main": "index.js",
   "directories": {

@@ -1,0 +1,1 @@
+﻿var validArgs=function(){for(var n=[],r=PPx.Arguments;!r.atEnd();r.moveNext())n.push(r.value);return n},main=function(){var n=validArgs()[0],r=getLineRange(),t=r[0],e=r[1];setCursor("low"===n?t+e-1:"middle"===n?t+e/2-1:t)},setCursor=function(n){return PPx.EntryIndex=n},getLineRange=function(){var n=PPx.EntryIndex,r=PPx.EntryDisplayY;return[Math.floor(n/r)*r,r]};main();
