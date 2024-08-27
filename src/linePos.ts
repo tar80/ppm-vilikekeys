@@ -18,7 +18,9 @@ const main = () => {
   }
 };
 
-const setCursor = (idx: number): number => (PPx.EntryIndex = idx);
+const setCursor = (idx: number): void => {
+  PPx.EntryIndex = idx;
+};
 
 const getLineRange = (): [number, number] => {
   const currentIndex = PPx.EntryIndex;
