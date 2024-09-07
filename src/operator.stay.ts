@@ -22,7 +22,7 @@ const main = (): void => {
   cache.xID = presentOrC(key);
   cache.label = `#K_ppmVi${key}`;
   cache.sign = sign.replace(/"/g, '""');
-  cache.count = '0';
+  cache.count = '01';
   cache.digit = digit <= 5 ? digit : 5;
   cache.timer = 0;
 
@@ -36,9 +36,11 @@ const main = (): void => {
 const ppx_resume = (last: string): void => {
   cache.timer = 0;
   cache.count = ((): string => {
-    if (cache.count === '0') {
+    if (cache.count === '01') {
       if (last === '0') {
-        return '0';
+        return '01';
+      } else if (last === '1') {
+        return '1';
       }
 
       return last;
@@ -47,7 +49,7 @@ const ppx_resume = (last: string): void => {
     return `${cache.count}${last}`.slice(-cache.digit);
   })();
 
-  if (cache.count === '0') {
+  if (cache.count === '01') {
     PPx.Execute('%k"@V_HF0@0"');
 
     return;
