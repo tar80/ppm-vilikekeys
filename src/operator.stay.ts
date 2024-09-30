@@ -7,13 +7,12 @@
 
 import {safeArgs} from '@ppmdev/modules/argument.ts';
 import debug from '@ppmdev/modules/debug.ts';
-import {isEmptyStr} from '@ppmdev/modules/guard.ts';
 
 const STAYMODE_ID = 80130;
 const TIMER_INTERVAL = 400;
 
-type XID = 'C' | 'V' | 'E';
-type Cache = {xID: XID; label: string; sign: string; count: string; digit: number; timer: number; msgPrefix: '!""' | ''};
+// type XID = 'C' | 'V' | 'E';
+type Cache = {xID: string; label: string; sign: string; count: string; digit: number; timer: number; msgPrefix: '!""' | ''};
 const cache = {msgPrefix: '!""'} as Cache;
 
 const main = (): void => {
@@ -65,11 +64,11 @@ const ppx_Count = (): string => cache.count;
  * @arg key - Target ID of xUI
  * @return ID of xUI
  */
-const presentOrC = (key: string): XID => {
+const presentOrC = (key: string): string => {
   if (key.length === 2 && /^[ev].$/i.test(key)) {
     cache.msgPrefix = '';
 
-    return key.slice(0, 1).toUpperCase() as XID;
+    return PPx.Extract('%n');
   }
 
   return 'C';
